@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //MainActivityFragment mapFrag = new MainActivityFragment();
+        //MyMapFragment mapFrag = new MyMapFragment();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MainActivityFragment(), "FORECASTFRAGMENT_TAG")
+                    .add(R.id.container, new MyMapFragment(), "FORECASTFRAGMENT_TAG")
                     .commit();
         }
 

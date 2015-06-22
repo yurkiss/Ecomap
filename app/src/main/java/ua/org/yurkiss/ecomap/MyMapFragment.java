@@ -1,34 +1,34 @@
 package ua.org.yurkiss.ecomap;
 
-import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MyMapFragment extends SupportMapFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
-    public MainActivityFragment() {        //SupportMapFragment p = super.newInstance();
+    public MyMapFragment() {        //SupportMapFragment p = super.newInstance();
         getMapAsync(this);
     }
 
-//    public static MainActivityFragment newInstance(){
-//        MainActivityFragment fragment = new MainActivityFragment();
-//        return fragment;
-//    }
+    public static MyMapFragment newInstance(int sectionNumber){
+        MyMapFragment fragment = new MyMapFragment();
+        Bundle args = new Bundle();
+        args.putInt(StartActivity.ARG_SECTION_NUMBER, sectionNumber);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -88,4 +88,12 @@ public class MainActivityFragment extends SupportMapFragment implements OnMapRea
         FetchProblemsTask problemsTask = new FetchProblemsTask(getActivity(), mMap);
         problemsTask.execute();
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        ((StartActivity) activity).onSectionAttached(
+                getArguments().getInt(StartActivity.ARG_SECTION_NUMBER));
+    }
+
 }
