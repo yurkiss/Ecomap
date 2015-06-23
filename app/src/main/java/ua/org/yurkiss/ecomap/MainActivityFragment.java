@@ -17,7 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MainActivityFragment extends MapFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
