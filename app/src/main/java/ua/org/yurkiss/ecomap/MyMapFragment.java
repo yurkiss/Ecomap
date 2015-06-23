@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
@@ -14,7 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MyMapFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MyMapFragment extends MapFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 

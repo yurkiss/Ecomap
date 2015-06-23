@@ -1,12 +1,13 @@
 package ua.org.yurkiss.ecomap;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         //MyMapFragment mapFrag = new MyMapFragment();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .add(R.id.container, new MyMapFragment(), "FORECASTFRAGMENT_TAG")
                     .commit();
         }
